@@ -1,13 +1,16 @@
+/* eslint-disable */ 
 import axios from 'axios'
 import { MessageBox, Message } from 'element-ui'
 import store from '@/store'
 import { getToken } from '@/utils/auth'
 
-// create an axios instance
+//tips: create an axios instance  直接用后端地址 不需要跨域代理
+console.log(process.env.VUE_APP_BASE_API)
 const service = axios.create({
-  baseURL: process.env.VUE_APP_BASE_API, // url = base url + request url
+  baseURL:  `http://gmall-h5-api.atguigu.cn`, 
+  // url = base url + request url
   // withCredentials: true, // send cookies when cross-domain requests
-  timeout: 5000 // request timeout
+  timeout: 50000 // request timeout
 })
 
 //请求拦截器：携带的token字段

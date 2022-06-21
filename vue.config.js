@@ -36,15 +36,16 @@ module.exports = {
       warnings: false,
       errors: true
     },
-    //配置代理跨域
-    proxy: {
-      '/dev-api': {
-        target: 'http://39.98.123.211',
-        pathRewrite: { '^/dev-api': '' },
-      },
-    },
+    //tips:配置代理跨域 跨域没什么用 而且后端已经解决跨域问题了
+    // proxy: {
+    //   '/dev-api': {
+    //     target: 'http://sph-admin-h5.atguigu.cn',   
+    //     pathRewrite: { '^/dev-api': '' },
+    //     changeOrigin:true,
+    //   },
+    // },
     //开启mock数据
-    // before: require('./mock/mock-server.js')
+    before: require('./mock/mock-server.js')
   },
   configureWebpack: {
     // provide the app's title in webpack's name field, so that

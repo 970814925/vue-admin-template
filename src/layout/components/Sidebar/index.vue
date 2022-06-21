@@ -54,6 +54,10 @@ export default {
     isCollapse() {
       return !this.sidebar.opened
     }
+  },
+  //tips:查看侧边栏为什么没有品牌管理的问题
+  mounted() {
+    console.log(this.routes)
   }
 }
 </script>

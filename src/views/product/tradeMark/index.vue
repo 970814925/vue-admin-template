@@ -9,14 +9,15 @@
       >添加</el-button
     >
     <!-- 
-         表格组件 
+         tips:table组件 
          data:表格组件将来需要展示的数据------数组类型
          border：是给表格添加边框
-         column属性
+         tips:column组件
          label：显示标题
          width：对应列的宽度
          align：标题的对齐方式
          prop:对应列内容的字段名
+         type="index"  添加序号类型 $index是每行的索引
          注意1：elmentUI当中的table组件，展示的数据是以一列一列进行展示数据
        -->
     <el-table style="width: 100%" border :data="list">
@@ -60,7 +61,7 @@
       page-sizes：代表可以设置每一页展示多少条数据
       layout：可以实现分页器布局
       pager-count:按钮的数量  如果 9  连续页码是7
-
+      tips:layout直接居右 调整各个组件的相对位置   text-align: center" 改为textAlign: center"
     -->
     <el-pagination
       style="margin-top: 20px; text-align: center"
@@ -165,6 +166,7 @@ export default {
   },
   //组件挂载完毕发请求
   mounted() {
+    console.log("haha")
     //获取列表数据方法
     this.getPageList();
   },
@@ -201,7 +203,7 @@ export default {
       //row：当前用户选中这个品牌信息
       //显示对话框
       this.dialogFormVisible = true;
-      //将已有的品牌信息赋值给tmForm进行展示
+      //tips:将已有的品牌信息赋值给tmForm进行展示  浅拷贝 本质上就是展开语法
       //将服务器返回品牌的信息，直接赋值给了tmForm进行展示。
       //也就是tmForm存储即为服务器返回品牌信息
       this.tmForm = { ...row };
@@ -263,7 +265,7 @@ export default {
         type: "warning",
       })
         .then(async () => {
-          //当用户点击确定按钮的时候会出发
+          //当用户点击确定按钮的时候会触发
           //向服务器发请求
           let result = await this.$API.trademark.reqDeleteTradeMark(row.id);
           //如果删除成功

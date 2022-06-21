@@ -12,7 +12,7 @@ import Layout from '@/layout'
  * Note: sub-menu only appear when route children.length >= 1
  * Detail see: https://panjiachen.github.io/vue-element-admin-site/guide/essentials/router-and-nav.html
  *
- * hidden: true                   if set true, item will not show in the sidebar(default is false)
+  //tips:hidden: true                   if set true, item will not show in the sidebar(default is false) 只是v-if的开关罢了
  * alwaysShow: true               if set true, will always show the root menu
  *                                if not set alwaysShow, when item has more than one children route,
  *                                it will becomes nested mode, otherwise not show the root menu
@@ -167,10 +167,11 @@ export const asyncRoutes = [
 export const anyRoutes ={ path: '*', redirect: '/404', hidden: true };
 
 
-//任意理由：
+//任意路由：
 
 const createRouter = () => new Router({
   // mode: 'history', // require service support
+  //tips:滚动行为
   scrollBehavior: () => ({ y: 0 }),
   //因为注册的路由是‘死的’，‘活的’路由如果根据不同用户（角色）可以展示不同菜单
   routes: constantRoutes
